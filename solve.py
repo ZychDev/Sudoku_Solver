@@ -29,9 +29,12 @@ def print_board(boa):
                 print(str(boa[i][j]) + " ", end="")
 
             
+def find_zero(boa):
+    for x in range(len(boa)):
+        for y in range(len(boa[0])):
+            if boa[x][y] == 0:
+                return (x,y)
 
 
-
-            
 print_board(board)
-
+print(find_zero(board))
