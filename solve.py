@@ -42,9 +42,18 @@ def check(boa,num,pos):
             return False
     ## Column check
     for j in range(len(boa[0])):
-        if boa[j][pos[1]] == and pos[0] != j
+        if boa[j][pos[1]] == num and pos[0] != j
+            return False
 
-
+    ## Box check
+    # 9 boxes  = [2][2] array
+    box_x = pos[1] // 3 
+    box_y = pos[0] // 3
+    for i in range(box_y *3 , box_y * 3 +3 ):
+        for j in range(box_x *3 , box_x * 3 + 3):
+            if boa[i][j] == num and (i,j) != pos:
+                return False   
+)
 
 
 print_board(board)
