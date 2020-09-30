@@ -35,6 +35,19 @@ def find_zero(boa):
             if boa[x][y] == 0:
                 return (x,y)
 
+def check(boa,num,pos):
+    ## Row check
+    for i in range(len(boa[0])):
+        if boa[pos[0]][i] == num and pos[1] != i:
+            return False
+    ## Column check
+    for j in range(len(boa[0])):
+        if boa[j][pos[1]] == and pos[0] != j
+
+
+
 
 print_board(board)
-print(find_zero(board))
+pos = find_zero(board)
+
+
