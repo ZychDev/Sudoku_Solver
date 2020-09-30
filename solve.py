@@ -41,10 +41,9 @@ def check(boa,num,pos):
         if boa[pos[0]][i] == num and pos[1] != i:
             return False
     ## Column check
-    for j in range(len(boa[0])):
-        if boa[j][pos[1]] == num and pos[0] != j
+    for i in range(len(boa)):
+        if boa[i][pos[1]] == num and pos[0] != i:
             return False
-
     ## Box check
     # 9 boxes  = [2][2] array
     box_x = pos[1] // 3 
@@ -53,10 +52,23 @@ def check(boa,num,pos):
         for j in range(box_x *3 , box_x * 3 + 3):
             if boa[i][j] == num and (i,j) != pos:
                 return False   
-)
 
+def solver(boa):
+    empty = find_zero(boa)
+    if not empty:
+        return True
+    else:
+        row , column = emmpty
 
-print_board(board)
-pos = find_zero(board)
+    for x in range(1,10):
+        if check(boa,x,(row,column)):
+            boa[row][column] = x
+            if solver(boa):
+                return True
+    
+            boa[row][column] = 0
+    
+    return False
 
+    
 
