@@ -44,6 +44,7 @@ def check(boa,num,pos):
     for i in range(len(boa)):
         if boa[i][pos[1]] == num and pos[0] != i:
             return False
+
     ## Box check
     # 9 boxes  = [2][2] array
     box_x = pos[1] // 3 
@@ -52,17 +53,20 @@ def check(boa,num,pos):
         for j in range(box_x *3 , box_x * 3 + 3):
             if boa[i][j] == num and (i,j) != pos:
                 return False   
+    
+    return True
 
 def solver(boa):
     empty = find_zero(boa)
     if not empty:
         return True
     else:
-        row , column = emmpty
+        row , column = empty
 
     for x in range(1,10):
         if check(boa,x,(row,column)):
             boa[row][column] = x
+
             if solver(boa):
                 return True
     
@@ -70,5 +74,6 @@ def solver(boa):
     
     return False
 
-    
-
+print_board(board)
+solver(board)
+print_board(board)
